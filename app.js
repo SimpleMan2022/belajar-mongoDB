@@ -14,5 +14,22 @@ client.connect((err, res) => {
        return console.log('koneksi gagal!')
     }
 
-    console.log('koneksi berhasil')
+    //pilih db dulu
+    const db = client.db(dbName)
+    
+    //menambahkan 1 data
+    // db.collection('mahasiswa').insertOne({
+    //     nama : 'agus',
+    //     email : 'agus@gmail.com'
+    // }, 
+    // (err, res) => {
+    //     if(err){
+    //         return console.log('gagal menambahkan!')
+    //     }
+    //     console.log(res)
+    // })
+
+    console.log(db.collection('mahasiswa').find({nama : 'agus'}).toArray((err, res) => {
+        console.log(res)
+    }))
 })
