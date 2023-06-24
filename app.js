@@ -1,4 +1,4 @@
-const {MongoClient} = require("mongodb")
+const { MongoClient, ObjectID } = require('mongodb')
 
 const uri = "mongodb://127.0.0.1:27017"
 const dbName = "belajar-nodejs"
@@ -29,7 +29,36 @@ client.connect((err, res) => {
     //     console.log(res)
     // })
 
-    console.log(db.collection('mahasiswa').find({nama : 'agus'}).toArray((err, res) => {
+    //menampilkan data
+    // console.log(db.collection('mahasiswa').find({nama : 'agus'}).toArray((err, res) => {
+    //     console.log(res)
+    // }))
+
+    //mengubah data 
+    db.collection('mahasiswa').updateOne(
+        {
+            _id : ObjectID("649551dff94763fd88199cc7")
+        },
+        {
+            $set : {
+                nama : 'adit nugroho'
+            }
+        }
+    ).then((res) => {
         console.log(res)
-    }))
+    }).catch((err) => {
+        console.log(err)
+    })
+
+
+    //menghapus data
+    // db.collection('mahasiswa').deleteOne(
+    //     {
+    //         nama : 'agus'
+    //     }
+    // ).then((res) => {
+    //     console.log(res)
+    // }).catch((err) => {
+    //     console.log(err)
+    // })
 })
