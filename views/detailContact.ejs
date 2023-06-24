@@ -1,0 +1,24 @@
+<h1>selamat datang di halaman detail contact cuy</h1>
+<h4>made by : spaidiyyy</h4>
+
+<% if (!contact) { %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="alert alert-danger" role="alert">Data Contact tidak ada! <a href="/contact" class="alert-link">kembali ke daftar contact</a>.</div>
+  </div>
+</div>
+<% } else { %>
+<section id="detailcontact">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= contact.nama %></h5>
+      <p class="card-text">Email : <%= contact.email %></p>
+      <p class="card-text">no Hp : <%= contact.nohp %></p>
+      <a href="/contact/delete/<%= contact.nama %>" onclick="return confirm('yakin ?')" class="card-link"><span class="badge text-bg-danger">Hapus</span></a>
+      <a href="/contact/edit/<%= contact.nama %>" class="card-link"><span class="badge text-bg-info px-3">Edit</span></a>
+      <br /><br />
+      <a href="/contact" class="card-link"><span class="badge text-bg-primary">Back to contacts</span></a>
+    </div>
+  </div>
+  <% } %>
+</section>

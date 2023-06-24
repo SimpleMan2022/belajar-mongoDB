@@ -1,0 +1,53 @@
+<h1>selamat datang di halaman contact cuy</h1>
+<h4>made by : spaidiyyy</h4>
+
+<div class="row">
+  <div class="col-6">
+    <a href="/contact/add" class="btn btn-warning mt-3">Tambah Data</a>
+  </div>
+</div>
+
+<section id="table" class="mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <% if (msg != '') { %>
+      <div class="alert alert-success" role="alert">
+        <%= msg %>
+      </div>
+      <% } %>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th scope="col">Nama</th>
+            <th scope="col">No Hp</th>
+            <th>aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (contacts.length < 1) { %>
+          <tr>
+            <td colspan="4">
+              <div class="row">
+                <div class="col">
+                  <div class="alert alert-danger fw-bold" role="alert">Daftar kontak tidak ada!</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <% } %> <% contacts.forEach((m, i)=> { i++ %>
+          <tr>
+            <td><%= i++ %></td>
+            <td><%= m.nama %></td>
+            <td><%= m.nohp %></td>
+            <td>
+              <a href="/contact/<%= m.nama %>"><span class="badge text-bg-primary">detail</span></a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
