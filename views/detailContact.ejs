@@ -14,8 +14,13 @@
       <h5 class="card-title"><%= contact.nama %></h5>
       <p class="card-text">Email : <%= contact.email %></p>
       <p class="card-text">no Hp : <%= contact.nohp %></p>
-      <a href="/contact/delete/<%= contact.nama %>" onclick="return confirm('yakin ?')" class="card-link"><span class="badge text-bg-danger">Hapus</span></a>
+      <!-- <a href="/contact/delete/<%= contact.nama %>" onclick="return confirm('yakin ?')" class="card-link"><span class="badge text-bg-danger">Hapus</span></a> -->
+
       <a href="/contact/edit/<%= contact.nama %>" class="card-link"><span class="badge text-bg-info px-3">Edit</span></a>
+      <form action="/contact?_method=DELETE" method="post" class="d-inline">
+        <input type="hidden" name="nama" value="<%= contact.nama %>" />
+        <button type="submit" class="btn btn-danger badge" onclick="return confirm('yakin?')">Hapus</button>
+      </form>
       <br /><br />
       <a href="/contact" class="card-link"><span class="badge text-bg-primary">Back to contacts</span></a>
     </div>

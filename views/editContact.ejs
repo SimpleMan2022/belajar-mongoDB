@@ -11,7 +11,8 @@
         </ul>
       </div>
       <% } %>
-      <form action="/contact/update" method="post">
+      <form action="/contact?_method=PUT" method="post">
+        <input type="hidden" name="_id" value="<%= contact._id %>" />
         <div class="mb-3">
           <label for="nama" class="form-label">Nama Lengkap</label>
           <input type="text" class="form-control" id="nama" required autofocus name="nama" value="<%= contact.nama %>" />
@@ -23,7 +24,7 @@
         </div>
         <div class="mb-3">
           <label for="No Hp" class="form-label">No Hp</label>
-          <input type="text" class="form-control" id="noHp" required name="noHp" value="<%= contact.nohp %>" />
+          <input type="text" class="form-control" id="noHp" required name="nohp" value="<%= contact.nohp %>" />
         </div>
         <button type="submit" class="btn btn-warning">Update contact</button>
       </form>
